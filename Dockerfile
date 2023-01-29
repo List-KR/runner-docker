@@ -4,7 +4,7 @@ USER root
 
 WORKDIR /
 COPY init.sh /init.sh
-RUN chmod +x /init.sh && /init.sh
+RUN chmod +x /init.sh && bash /init.sh
 
 USER runner
 
