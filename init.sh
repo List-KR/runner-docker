@@ -21,7 +21,7 @@ done
 
 dnslookupver="$(curl https://api.github.com/repos/ameshkov/dnslookup/releases/latest -s | jq .name -r | grep -Po '[0-9]+\.[0-9]+\.[0-9]+$')"
 wget https://github.com/ameshkov/dnslookup/releases/download/v"$dnslookupver"/dnslookup-linux-amd64-v"$dnslookupver".tar.gz -O dnslookup.tar.gz
-tar -xvzf dnslookup.tar.gz -C dnslookup
-mv dnslookup/linux-amd64/dnslookup /bin/dnslookup
+tar -xvzf dnslookup.tar.gz
+mv linux-amd64/dnslookup /bin/dnslookup
 chmod +x /bin/dnslookup
-rm -r dnslookup
+rm -r linux-amd64
