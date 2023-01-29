@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # APT Pre-packages
-AptPrePackages=("wget" "nodejs" "npm" "git" "nano" "curl")
+AptPrePackages=("wget" "nodejs" "npm" "git" "nano" "curl" "tar")
 NpmPackages=("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriver" "node-json-db" "typescript" "adm-zip" "@types/node")
 
 # Install pre-packages
@@ -16,5 +16,8 @@ do
   npm i -g "$i"
 done
 
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install ameshkov/tap/dnslookup
+dnslookupver=${{ curl https://api.github.com/repos/ameshkov/dnslookup/releases/latest -s | jq .name -r | grep -Po '[0-9]+\.[0-9]+\.[0-9]+$' }}
+wget https://github.com/ameshkov/dnslookup/releases/download/v${{dnslookupver}}/dnslookup-linux-amd64-v${{dnslookupver}}.tar.gz -o dnslookup.tar.gz
+tar -xvzf dnslookup.tar.gz -C dnslookup
+mv dnslookup/linux-amd64/dnslookup /bin/dnslookup
+chmod +x /bin/dnslookup
