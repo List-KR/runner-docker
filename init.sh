@@ -2,7 +2,7 @@
 
 # APT Pre-packages
 AptPrePackages=("wget" "nodejs" "npm" "git" "nano" "curl" "tar" "jq" "grep")
-NpmPackages=("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriver" "node-json-db" "typescript" "adm-zip" "@types/node")
+NpmPackages=("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriver" "node-json-db" "typescript" "adm-zip" "@types/node" "vuln-regex-detector")
 
 # Install pre-packages
 
