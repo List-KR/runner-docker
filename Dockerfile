@@ -4,7 +4,7 @@ USER root
 
 WORKDIR /
 COPY init.sh /init.sh
-RUN init.sh
+RUN /init.sh
 
 USER runner
 
