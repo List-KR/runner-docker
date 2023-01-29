@@ -8,6 +8,8 @@ NpmPackages=("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriv
 # Install pre-packages
 
 apt update
+apt upgrade -y
+apt purge $(dpkg -l | grep '^rc' | awk '{print $2}')
 for i in "${AptPrePackages[@]}"
 do
   apt install -y "$i"
