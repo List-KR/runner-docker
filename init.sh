@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # APT Pre-packages
-AptPrePackages = ("wget" "nodejs" "npm" "git" "nano")
-NpmPackages = ("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriver")
+AptPrePackages=("wget" "nodejs" "npm" "git" "nano")
+NpmPackages=("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriver")
 
 # Install pre-packages
 
