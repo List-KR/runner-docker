@@ -16,6 +16,5 @@ do
   npm i -g "$i"
 done
 
-# Create runner account
-
-useradd --create-home runner
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install ameshkov/tap/dnslookup
