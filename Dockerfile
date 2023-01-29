@@ -8,4 +8,4 @@ RUN chmod +x /init.sh && /init.sh
 
 USER runner
 
-RUN chmod +x *
+RUN chmod +x ~/*
