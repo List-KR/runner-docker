@@ -37,5 +37,4 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v3
         with:
-          tags: "$(date +'%Y%m%d%H%M%S')"
           push: true
