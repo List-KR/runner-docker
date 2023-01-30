@@ -33,8 +33,12 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set current time
+        id: currenttime
+        run: echo "currenttime=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_OUTPUT
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@v3
         with:
+          tags: ${{ steps.currenttime.outputs.currenttime }}
           push: true
