@@ -33,6 +33,7 @@ tar -xvzf dnslookup.tar.gz
 mv linux-amd64/dnslookup /bin/dnslookup
 chmod +x /bin/dnslookup
 rm -r linux-amd64
+rm -r dnslookup.tar.gz
 
 # Create account
 useradd --create-home runner
