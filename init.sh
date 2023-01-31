@@ -17,7 +17,7 @@ done
 # Dotnet
 wget https://dot.net/v1/dotnet-install.sh
 chmod +x dotnet-install.sh
-bash dotnet-install.sh --version latest
+bash dotnet-install.sh --channel STS
 rm dotnet-install.sh
 
 # Install NPM packages
