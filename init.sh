@@ -19,6 +19,14 @@ chmod +x dotnet-install.sh
 bash dotnet-install.sh --channel STS
 rm dotnet-install.sh
 
+# npm packages
+NpmPackages=("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriver" "node-json-db" "ts-node" "tslib" "typescript" "adm-zip" "@types/node" "vuln-regex-detector" "safe-regex")
+
+for i in "${NpmPackages[@]}"
+do
+  npm i -g "$i"
+done
+
 # DNS Lookup
 export dnslookupver="$(curl https://api.github.com/repos/ameshkov/dnslookup/releases/latest -s | jq .name -r | grep -Po '[0-9]+\.[0-9]+\.[0-9]+$')"
 wget https://github.com/ameshkov/dnslookup/releases/download/v"$dnslookupver"/dnslookup-linux-amd64-v"$dnslookupver".tar.gz -O dnslookup.tar.gz
