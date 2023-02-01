@@ -2,14 +2,14 @@
 #!/bin/bash
 
 # APT Pre-packages
-AptPrePackages=("wget" "nodejs" "npm" "git" "nano" "curl" "tar" "jq" "grep")
+AptPackages=("wget" "nodejs" "npm" "git" "nano" "curl" "tar" "jq" "grep" "vim")
 NpmPackages=("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriver" "node-json-db" "ts-node" "tslib" "typescript" "adm-zip" "@types/node" "vuln-regex-detector" "safe-regex")
 
 # Install APT packages
 apt update
 apt upgrade -y
 apt purge $(dpkg -l | grep '^rc' | awk '{print $2}')
-for i in "${AptPrePackages[@]}"
+for i in "${AptPackages[@]}"
 do
   apt install -y "$i"
 done
@@ -34,6 +34,3 @@ mv linux-amd64/dnslookup /bin/dnslookup
 chmod +x /bin/dnslookup
 rm -r linux-amd64
 rm -r dnslookup.tar.gz
-
-# Create account
-useradd --create-home runner
