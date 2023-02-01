@@ -1,9 +1,8 @@
 #!/bin/sh
 #!/bin/bash
 
-# APT Pre-packages
+# packages lists
 AptPackages=("wget" "nodejs" "npm" "git" "nano" "curl" "tar" "jq" "grep" "vim")
-NpmPackages=("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriver" "node-json-db" "ts-node" "tslib" "typescript" "adm-zip" "@types/node" "vuln-regex-detector" "safe-regex")
 
 # Install APT packages
 apt update
@@ -19,12 +18,6 @@ wget https://dot.net/v1/dotnet-install.sh
 chmod +x dotnet-install.sh
 bash dotnet-install.sh --channel STS
 rm dotnet-install.sh
-
-# Install NPM packages
-for i in "${NpmPackages[@]}"
-do
-  npm i -g "$i"
-done
 
 # DNS Lookup
 export dnslookupver="$(curl https://api.github.com/repos/ameshkov/dnslookup/releases/latest -s | jq .name -r | grep -Po '[0-9]+\.[0-9]+\.[0-9]+$')"

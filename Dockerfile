@@ -12,13 +12,10 @@ RUN rm /init.sh
 RUN useradd --create-home runner
 USER runner
 
-# Install Rust
+# Install Rust (Bash cannot find cargo command unless bash is not restarted)
 RUN curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh -s -- -y
-COPY init_rust.sh /home/runner/init_rust.sh
-RUN chmod +x /home/runner/init_rust.sh && bash /home/runner/init_rust.sh
-RUN rm /home/runner/init_rust.sh
 
-# GitHub Action
+# Install packages with rootless
 COPY init_runner.sh /home/runner/init_runner.sh
 RUN chmod +x /home/runner/init_runner.sh && bash /home/runner/init_runner.sh
 RUN rm /home/runner/init_runner.sh
