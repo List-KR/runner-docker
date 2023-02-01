@@ -14,11 +14,11 @@ USER runner
 
 # Install Rust
 RUN curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh -s -- -y
-COPY init_rust.sh ~/init_rust.sh
-RUN chmod +x ~/init_rust.sh && bash ~/init_rust.sh
-RUN rm ~/init_rust.sh
+COPY init_rust.sh /home/runner/init_rust.sh
+RUN chmod +x /home/runner/init_rust.sh && bash /home/runner/init_rust.sh
+RUN rm /home/runner/init_rust.sh
 
 # GitHub Action
-COPY init_runner.sh ~/init_runner.sh
-RUN chmod +x ~/init_runner.sh && bash ~/init_runner.sh
-RUN rm ~/init_runner.sh
+COPY init_runner.sh /home/runner/init_runner.sh
+RUN chmod +x /home/runner/init_runner.sh && bash /home/runner/init_runner.sh
+RUN rm /home/runner/init_runner.sh
