@@ -19,8 +19,3 @@ RUN chown runner /home/runner/init_runner.sh
 USER runner
 RUN chmod +x /home/runner/init_runner.sh && bash /home/runner/init_runner.sh
 RUN rm /home/runner/init_runner.sh
-
-# Install GitHub Runner as a service
-USER root
-RUN chmod +x /home/runner/svc.sh && bash /home/runner/svc.sh install runner
-USER runner
