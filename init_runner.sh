@@ -1,11 +1,3 @@
-# Rust Packages
-RustPackages=("wasm-pack")
-
-for i in "${RustPackages[@]}"
-do
-  cargo install "$i"
-done
-
 # GitHub Runner
 cd ~
 export runnerver="$(curl https://api.github.com/repos/actions/runner/releases/latest -s | jq .name -r | grep -Po '[0-9]+\.[0-9]+\.[0-9]+$')"
