@@ -22,5 +22,5 @@ RUN rm /home/runner/init_runner.sh
 
 # Install GitHub Runner as a service
 USER root
-RUN bash /home/runner/svc.sh install runner
+RUN chmod +x /home/runner/svc.sh && bash /home/runner/svc.sh install runner
 USER runner
