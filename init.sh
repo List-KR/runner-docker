@@ -35,3 +35,9 @@ mv linux-amd64/dnslookup /bin/dnslookup
 chmod +x /bin/dnslookup
 rm -r linux-amd64
 rm -r dnslookup.tar.gz
+
+# GitHub CLI
+export dnslookupver="$(curl https://api.github.com/repos/cli/cli/releases/latest -s | jq .name -r | grep -Po '[0-9]+\.[0-9]+\.[0-9]+$')"
+wget https://github.com/cli/cli/releases/download/v"$dnslookupver"/gh_"$dnslookupver"_linux_amd64.deb -O gh_cli.deb
+dpkg -i gh_cli.deb
+rm -r gh_cli.deb
