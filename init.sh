@@ -20,7 +20,7 @@ bash dotnet-install.sh --channel STS
 rm dotnet-install.sh
 
 # npm packages
-NpmPackages=("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriver" "node-json-db" "ts-node" "tslib" "typescript" "adm-zip" "@types/node" "vuln-regex-detector" "safe-regex")
+NpmPackages=("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriver" "node-json-db" "ts-node" "tslib" "typescript" "adm-zip" "vuln-regex-detector" "safe-regex" "benchmark" "openpgp")
 
 for i in "${NpmPackages[@]}"
 do
