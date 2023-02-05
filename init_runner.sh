@@ -5,3 +5,6 @@ wget https://github.com/actions/runner/releases/download/v"$runnerver"/actions-r
 tar -xvzf runner.tar.gz
 rm runner.tar.gz
 chmod -R +x ~
+
+# Set location of Npm installed globally
+npm config set prefix /usr/local

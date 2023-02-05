@@ -21,10 +21,16 @@ rm dotnet-install.sh
 
 # npm packages
 NpmPackages=("@actions/core" "@actions/github" "@actions/exec" "selenium-webdriver" "node-json-db" "ts-node" "tslib" "typescript" "adm-zip" "chance" "safe-regex" "benchmark" "openpgp")
+NpmDevPackges=("@types/safe-regex" "@types/node" "@types/chance" "@types/benchmark" "@types/selenium-webdriver" "@types/adm-zip")
 
 for i in "${NpmPackages[@]}"
 do
   npm i -g "$i"
+done
+
+for i in "${NpmDevPackges[@]}"
+do
+  npm i -g -D "$i"
 done
 
 # DNS Lookup
