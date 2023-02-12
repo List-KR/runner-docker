@@ -1,4 +1,5 @@
-FROM ubuntu
+ARG  UBUNTU_VERSION=rolling
+FROM ubuntu:${UBUNTU_VERSION}
 
 USER root
 
