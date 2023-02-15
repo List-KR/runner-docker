@@ -36,5 +36,5 @@ jobs:
           registry: ${{ env.REGISTRY }}
           default_branch: ${{ github.ref_name }}
           buildoptions: "--compress"
-          platforms: linux/amd64,linux/arm64v8
+          platforms: linux/amd64,linux/arm64
           snapshot: true
