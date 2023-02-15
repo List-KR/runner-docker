@@ -2,7 +2,7 @@
 #!/bin/bash
 
 # packages lists
-AptPackages=("wget" "nodejs" "npm" "git" "nano" "curl" "tar" "jq" "grep" "vim" "sudo" "7zip")
+AptPackages=("wget" "nodejs" "npm" "git" "nano" "curl" "tar" "jq" "grep" "vim" "sudo" "7zip" "uname")
 
 # Install APT packages
 apt update
@@ -35,15 +35,31 @@ done
 
 # DNS Lookup
 export dnslookupver="$(curl https://api.github.com/repos/ameshkov/dnslookup/releases/latest -s | jq .name -r | grep -Po '[0-9]+\.[0-9]+\.[0-9]+$')"
-wget https://github.com/ameshkov/dnslookup/releases/download/v"$dnslookupver"/dnslookup-linux-amd64-v"$dnslookupver".tar.gz -O dnslookup.tar.gz
+if [ "$(uname -m)" == "x86_64" ]
+then
+  export dnslookuparch="amd64"
+fi
+if [ "$(uname -m)" == "aarch64" ]
+then
+  export dnslookuparch="arm64"
+fi
+wget https://github.com/ameshkov/dnslookup/releases/download/v"$dnslookupver"/dnslookup-linux-"$dnslookuparch"-v"$dnslookupver".tar.gz -O dnslookup.tar.gz
 tar -xvzf dnslookup.tar.gz
-mv linux-amd64/dnslookup /bin/dnslookup
+mv linux-"$dnslookuparch"/dnslookup /bin/dnslookup
 chmod +x /bin/dnslookup
-rm -r linux-amd64
+rm -r linux-"$dnslookuparch"
 rm -r dnslookup.tar.gz
 
 # GitHub CLI
-export dnslookupver="$(curl https://api.github.com/repos/cli/cli/releases/latest -s | jq .name -r | grep -Po '[0-9]+\.[0-9]+\.[0-9]+$')"
-wget https://github.com/cli/cli/releases/download/v"$dnslookupver"/gh_"$dnslookupver"_linux_amd64.deb -O gh_cli.deb
+export ghcliver="$(curl https://api.github.com/repos/cli/cli/releases/latest -s | jq .name -r | grep -Po '[0-9]+\.[0-9]+\.[0-9]+$')"
+if [ "$(uname -m)" == "x86_64" ]
+then
+  export ghcliarch="amd64"
+fi
+if [ "$(uname -m)" == "aarch64" ]
+then
+  export ghcliarch="arm64"
+fi
+wget https://github.com/cli/cli/releases/download/v"$ghcliver"/gh_"$ghcliver"_linux_"$ghcliarch".deb -O gh_cli.deb
 dpkg -i gh_cli.deb
 rm -r gh_cli.deb
