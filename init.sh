@@ -13,6 +13,14 @@ do
   apt install -y "$i"
 done
 
+# npm packages
+NpmPackages=("ts-node" "tslib" "typescript")
+
+for i in "${NpmPackages[@]}"
+do
+  npm i -g "$i"
+done
+
 # Dotnet
 wget https://dot.net/v1/dotnet-install.sh
 chmod +x dotnet-install.sh
