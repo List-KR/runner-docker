@@ -25,12 +25,12 @@ NpmDevPackges=("@types/safe-regex" "@types/node" "@types/chance" "@types/seleniu
 
 for i in "${NpmPackages[@]}"
 do
-  npm i -g "$i"
+  npm i -g --unsafe-perm=true --allow-root "$i"
 done
 
 for i in "${NpmDevPackges[@]}"
 do
-  npm i -g -D "$i"
+  npm i -g -D --unsafe-perm=true --allow-root "$i"
 done
 
 # DNS Lookup
