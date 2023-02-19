@@ -2,7 +2,7 @@
 #!/bin/bash
 
 # packages lists
-AptPackages=("wget" "nodejs" "npm" "git" "nano" "curl" "tar" "jq" "grep" "vim" "sudo" "7zip" "uname")
+AptPackages=("wget" "nodejs" "npm" "git" "nano" "curl" "tar" "jq" "grep" "vim" "sudo" "7zip" "uname" "ent")
 
 # Install APT packages
 apt update
