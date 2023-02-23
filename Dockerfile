@@ -10,7 +10,9 @@ RUN chmod +x /init.sh && bash /init.sh
 RUN rm /init.sh
 
 # Create account and switch
-RUN useradd --create-home runner
+RUN adduser --create-home --disabled-password --gecos '' runner
+RUN adduser runner sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER runner
 
 # Install packages with rootless
