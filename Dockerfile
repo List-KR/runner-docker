@@ -10,7 +10,7 @@ RUN chmod +x /init.sh && bash /init.sh
 RUN rm /init.sh
 
 # Create account and switch
-RUN adduser --create-home --disabled-password --gecos '' runner
+RUN adduser --disabled-password --gecos '' runner
 RUN adduser runner sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER runner
