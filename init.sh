@@ -13,6 +13,10 @@ do
   apt install -y "$i"
 done
 
+npm i -g n
+n lts
+npm update -g npm
+
 # npm packages
 NpmPackages=("ts-node" "tslib" "typescript")
 
